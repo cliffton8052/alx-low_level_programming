@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main -  C program that prints the size of various types and sizes.
+ * main -  C program that prints the size of bytes.
  * Return 0 (Pass)
  */
 
@@ -12,10 +12,10 @@ long int x;
 long long int z;
 float f;
 
-printf("Size of a char: %lu byte(s)\n", (unsigned long)sizeof(c));
-printf("Size of an int: %lu byte(s)\n", (unsigned long)sizeof(i));
-printf("Size of a long int: %lu byte(s)\n", (unsigned long)sizeof(x));
-printf("Size of a long long: %lu byte(s)\n", (unsigned long)sizeof(z));
-printf("Size of a float: %lu byte(s)\n", (unsigned long)sizeof(f));
+printf("Size of char: %lu byte(s)\n", (unsigned long)sizeof(char));
+printf("Size of int: %lu byte(s)\n", (unsigned long)sizeof(int));
+printf("Size of long int: %lu byte(s)\n", (unsigned long)sizeof(long int));
+printf("Size of long long: %lu byte(s)\n", (unsigned long)sizeof(long long int));
+printf("Size of float: %lu byte(s)\n", (unsigned long)sizeof(float));
 return (0);
 }

@@ -1,8 +1,9 @@
 #include <stdio.h>
 /**
  * main - Entry point
- * Description: print a quote using write function.
- * Return: 1 (error).
+ * Description: This is the write function that is
+ *  is used to print chars
+ *  Return: 1 (fail)
  */
 int main(void)
 {

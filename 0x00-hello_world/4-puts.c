@@ -1,10 +1,13 @@
-#!/bin/bash
-include <stdio.h>
+#include <stdio.h>
 
-int main() {
 
-	char Mystr[] = "Programming is like building a multilingual puzzle";
+/**
+ * main - How to use puts to output commands in C language
+ * Return: 0 (Pass)
+ */
 
-	puts(Mystr);
-
-	return 0;
+int main(void)
+{
+puts("\"Programming is like building a multilingual puzzle");
+return (0);
+}

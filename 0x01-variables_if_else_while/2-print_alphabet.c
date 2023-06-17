@@ -11,9 +11,11 @@ int main(void)
 
 	x = 'a';
 	while
-		(x <= 'z') {
+		(x <= 'z')
+		{
 			putchar(x);
 			x++;
 		}
 	putchar('\n');
 	return (0);
+}

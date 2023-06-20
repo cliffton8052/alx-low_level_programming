@@ -1,10 +1,8 @@
 #include "main.h"
 
 /**
- * main - check code
- * Description: print alphabet in lower case
- * @void - parameter
- * Return: Always 0
+ * print_alphabet -  print alphabet in lower case
+ * Return: void
  */
 void print_alphabet(void)
 {

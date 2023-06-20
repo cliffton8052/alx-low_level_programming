@@ -1,8 +1,7 @@
 #include "main.h"
 
 /**
- * main - entry point
- * Description: _isalpha used for checking alphabetic character
+ * _isalpha - functions that prints alphabetic characters
  * @m: This is the character to be checked
  * Return: 1 for alphabetic character or 0 for everything else
  *

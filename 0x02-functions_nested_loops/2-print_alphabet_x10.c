@@ -1,7 +1,6 @@
 #include "main.h"
 /**
- * main - Enrty point
- * Description: print program of 2-print_alphabet
+ * print_alphabet_x10  - function that prints 10 times the alphabet.
  * Return: void
  *
  */

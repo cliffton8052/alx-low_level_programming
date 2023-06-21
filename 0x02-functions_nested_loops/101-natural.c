@@ -1,5 +1,5 @@
-#include "stdioi.h"
-
+#include "main.h"
+#include <stdio.h>
 /**
  * main - Entry point of program
  * Description: computes the sum and multiples

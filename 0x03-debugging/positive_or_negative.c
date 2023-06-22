@@ -4,29 +4,27 @@
 
 /**
  * positive_or_negative - checks if a number is positive or negative.
- * @i - the number to be checked
+ * @n: the number to be checked
  * Return: 1
  */
 
-void positive_or_negative(int i)
+void positive_or_negative(int n)
 {
-	int i;
 
-	srand(time(0));
-	n = rand() - RAND_MAX / 2;
-	if (i > 0)
+	if (n > 0)
 	{
-		printf("%d is positive\n", i);
+		printf("%i is positive\n", n);
 	}
-	else if (i == 0)
+	else if (n == 0)
 	{
 
-		printf("%d is zero\n", i);
+		printf("%i is zero\n", n);
 	}
 	else
 	{
-		printf("%d is negative\n", i);
+		printf("%i is negative\n", n);
 	}
 
-	return (i);
 }
+
+

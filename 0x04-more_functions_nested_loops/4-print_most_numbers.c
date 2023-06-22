@@ -2,9 +2,7 @@
 
 /**
  * print_most_numbers - function that prints nums 0-9 != 2 and 4
- *
- * @c: a number to be printed
- * Return: void
+ * Return: 0 (pass)
  */
 
 void print_most_numbers(void)

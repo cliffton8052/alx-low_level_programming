@@ -2,23 +2,26 @@
 
 /**
  *  more_numbers - print numbers
- *  @k: external loop
- *  @j: internal loop
  *  Return: void
  */
 
 void more_numbers(void)
 {
-	int k, j;
+	int k, i, j;
 
-	for (k = 1; k <= 10; k++)
+	for (i = 1; i <= 10; i++)
 	{
-		if (j >= 10)
-			_putchar('1');
+		for (j = 0; j <= 14; j++)
+		{
+			k = j;
 
-		else
-			_putchar(j % 10 + '0');
-
+			if (j > 9)
+			{
+				_putchar(1 + 48);
+				k = j % 10;
+			}
+			_putchar(k + 0);
+		}
+		_putchar('\n');
 	}
-	_putchar('\n');
 }

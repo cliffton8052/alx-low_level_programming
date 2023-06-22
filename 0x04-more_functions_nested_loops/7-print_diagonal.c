@@ -2,11 +2,11 @@
 #include <stdio.h>
 
 /**
- * print_diognal -  function that draws a diagonal line on the terminal
+ * print_diagonal -  function that draws a diagonal line on the terminal
  * @n: number of times \ character to be printed
  */
 
-void print_diognal(int n)
+void print_diagonal(int n)
 {
 	int postn, space;
 

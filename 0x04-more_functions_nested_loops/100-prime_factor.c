@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "main.h"
+#include "math.h"
 
 /**
  * main - Entry point for program finding largest prime number
@@ -18,7 +18,7 @@ int main(void)
 	while (n % 2 == 0)
 	{
 		max = 2;
-		n /=2;
+		n /= 2;
 	}
 	for (i = 3; i <= sqrt(n); i = i + 2)
 	{

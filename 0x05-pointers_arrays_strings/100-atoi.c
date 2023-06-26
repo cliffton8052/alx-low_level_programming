@@ -15,11 +15,11 @@ int _atoi(char *s)
 		if (*s == '-')
 			num *= -1;
 		else if (*s >= '0' && *s <= '9')
-				ni = (ni * 10) + (*s - '0');
+			ni = (ni * 10) + (*s - '0');
 
-				else if (ni > 0)
-				break;
-				} while (*s++);
+		else if (ni > 0)
+			break;
+	} while (*s++);
 
-				return (ni * num);
-				}
+	return (ni * num);
+}

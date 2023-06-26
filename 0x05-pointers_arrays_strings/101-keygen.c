@@ -15,7 +15,7 @@ int main(void)
 
 	srand(time(0));
 
-	while(sum < 2772)
+	while (sum < 2772)
 	{
 		password[index] = 33 + rand() % 94;
 		sum += password[index++];
@@ -29,7 +29,7 @@ int main(void)
 		diff_half2 = (sum - 2772) / 2;
 
 		if ((sum - 2772) % != 0)
-			diff_half++;
+			diff_half2++;
 
 		for (index = 0; password[index]; index++)
 		{

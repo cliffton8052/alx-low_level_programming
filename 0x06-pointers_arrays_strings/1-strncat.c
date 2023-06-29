@@ -3,7 +3,7 @@
 /**
  * _strncat - a function that concatenates two strings
  * @dest: points to destination input
- * @scrc: points to a source input
+ * @src: points to a source input
  * @n: number bytes rom src variable
  * Return: destination
  */

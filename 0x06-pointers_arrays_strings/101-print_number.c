@@ -22,5 +22,20 @@ void print_number(int n)
 	{
 		print_number(n1 / 10);
 	}
-	_putchar((n1 % 10 + '0');
+	_putchar((n1 % 10) + '0');
+
 }
+/**
+*101-print_number.c: In function ‘print_number’:
+*101-print_number.c:25:26: error: expected ‘)’ before ‘;’ token
+*  25 |  _putchar((n1 % 10 + '0');
+*     |                          ^
+*      |                          )
+*101-print_number.c:25:27: error: expected ‘;’ before ‘}’ token
+*  25 |  _putchar((n1 % 10 + '0');
+*      |                           ^
+*     |                           ;
+*   26 | }
+*
+*      | ~
+*/

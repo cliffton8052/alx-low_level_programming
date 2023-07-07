@@ -23,4 +23,3 @@ char *_strpbrk(char *haystack, char *needle);
 
 #endif /* MAIN_H */
 
-/* char *_strcpy(char *dest, char src); */

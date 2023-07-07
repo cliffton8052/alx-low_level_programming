@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 /**
  * main - entry point
- * @argc: the number of arguments
- * @argv: array of pointers to arguments
+ * @argc: the number of commandline arguments
+ * @argv: array of pointers to commandline arguments
  * Return: (0)
  */
 

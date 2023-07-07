@@ -4,6 +4,8 @@
  * main - entry point
  * @argc: the number of commandline arguments
  * @argv: array of pointers to commandline arguments
+ *
+ * Description: multiplies two numbers
  * Return: (0)
  */
 
@@ -19,6 +21,6 @@ int main(int argc, char *argv[])
 				return (printf("Error\n"), 1);
 		sum = sum + atoi(argv[argc]);
 	}
-	printf(" % d\n", sum);
+	printf("%d\n", sum);
 	return (0);
 }

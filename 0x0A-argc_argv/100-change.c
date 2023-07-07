@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 		{
 			if (money >= coins[i])
 			{
-				lowestcoins += money / coins[i];
+				lowestcoin += money / coins[i];
 				money = money % coins[i];
 				if (money % coins[i] == 0)
 				{
@@ -28,12 +28,12 @@ int main(int argc, char *argv[])
 
 			}
 		}
-		printf("%\n", lowestcoins);
+		printf("%d\n", lowestcoin);
 	}
 	else
 	{
-		printf("Error\n);
-		return (i);
+		printf("Error\n");
+		return (1);
 	}
 	return (0);
 }

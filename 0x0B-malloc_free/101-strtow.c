@@ -29,7 +29,6 @@ int wrdcnt(char *s)
  * @str: string to split
  * Return: pointer to an array of strings
  */
-
 char **strtow(char *str)
 {
 	int i, j, k, l, n = 0, wc = 0;
@@ -49,10 +48,10 @@ char **strtow(char *str)
 	{
 		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
 		{
-			for (j = 1; str[i + j] != ' ' && str[i + j]; j++);
+			for (j = 1; str[i + j] != ' ' && str[i + j]; j++)
+				;
 			j++;
 			w[wc] = (char *)malloc(j * sizeof(char));
-
 			j--;
 			if (w[wc] == NULL)
 			{

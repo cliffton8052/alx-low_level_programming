@@ -21,7 +21,7 @@ int wrdcnt(char *s)
 			n++;
 	}
 	n++;
-	return (0);
+	return (n);
 }
 
 /**

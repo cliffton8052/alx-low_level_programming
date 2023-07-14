@@ -4,6 +4,7 @@
  * @s: pointer to store the consant
  * @b: constant
  * @n: max bytes to use
+ *
  * Return: s
  */
 

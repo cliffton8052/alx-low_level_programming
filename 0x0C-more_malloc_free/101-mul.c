@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include <string.h>
-#include "main.h"
+#include <ctype.h>
 /**
- * validateInput - validates the ints input
- * @num: pointer to result
- *
- * Return: 1 on non-integer and 0 on integer
+ * validateInput - validates ints to be multiplied
+ * @num: num to be validated
+ * Return: 1
  */
 
 int validateInput(char *num)
@@ -24,18 +22,18 @@ int validateInput(char *num)
 }
 
 /**
- * mul - multiplies two integers
+ * mul - multipliees two ints
  * @num1: int
  * @num2: int
- * Return: NULL on error or 1 upon success
+ * Return: 0
  */
 
 void mul(char *num1, char *num2)
 {
 	int start = 0;
-	int result[200] = {0};
 	int len1 = strlen(num1);
 	int len2 = strlen(num2);
+	int result[200] = {0};
 	int i, j, carry, product;
 
 	for (i = len1 - 1; i >= 0; i--)
@@ -49,55 +47,59 @@ void mul(char *num1, char *num2)
 		}
 		result[i] += carry;
 	}
-
 	while (result[start] == 0 && start < len1 + len2 - 1)
 	{
 		start++;
 	}
-
 	if (start == len1 + len2 - 1)
 	{
-		printf("0\n");
+		char zero = '0';
+
+		putchar(zero);
+		putchar('\n');
 	}
 	else
 	{
 		for (i = start; i < len1 + len2; i++)
 		{
-			printf("%d", result[i]);
+			char digit = result[i] + '0';
+
+			putchar(digit);
 		}
-		printf("\n");
+		putchar('\n');
 	}
 }
-/**
- * main - writes arguments
- * @argc: int
- * @argv: argument
- * Return: 0
- */
 
+/**
+ * main - entry point
+ * @argc: int
+ * @argv: list
+ * Return: results
+ */
 int main(int argc, char *argv[])
 {
-	char *num1, *num2;
-	int valid_num1, valid_num2;
-
 	if (argc != 3)
 	{
-		printf("Error: Invalid number of arguments.\n");
-		exit(98);
+		fputs("Error: Invalid number of arguments.\n", stderr);
+		return (98);
 	}
+
+	int valid_num1;
+	int valid_num2;
+	char *num1;
+        char *num2;
 
 	num1 = argv[1];
 	num2 = argv[2];
-
+       	
 	valid_num1 = validateInput(num1);
 	valid_num2 = validateInput(num2);
 
 	if (!valid_num1 || !valid_num2)
 	{
-		printf("Error: Invalid input numbers.\n");
-		exit(98);
+		fputs("Error: Invalid input numbers.\n", stderr);
+		return (98);
 	}
-
 	mul(num1, num2);
 	return (0);
 }

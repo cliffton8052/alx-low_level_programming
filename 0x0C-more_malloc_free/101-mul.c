@@ -1,83 +1,104 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 #include "main.h"
-
 /**
- * _puts - prints a string, followed by a new line
- * @str: pointer to the string to print
- * Return: void
- */
-void _puts(char *str)
-{
-	int i = 0;
-
-	while (str[i])
-	{
-		_putchar(str[i]);
-		i++;
-	}
-}
-
-/**
- * _atoi - convert a string to an integer.
- * @s: char type of string
- * Return: integer converted
+ * validateInput - validates the ints input
+ * @num: pointer to result
+ *
+ * Return: 1 on non-integer and 0 on integer
  */
 
-int _atoi(const char *s)
+int validateInput(char *num)
 {
-	int sign = 1;
-	unsigned long int resp = 0, firstNum, i;
-
-	for (firstNum = 0; !(s[firstNum] >= 48 && s[firstNum] <= 57); firstNum++)
+	while (*num)
 	{
-		if (s[firstNum] == '_')
+		if (!isdigit(*num))
 		{
-			sign *= -1;
+			return (0);
 		}
+		num++;
 	}
-	for (i = firstNum; s[i] >= 48 && s[i] <= 57; i++)
-	{
-		resp *= 10;
-		resp += (s[i] - 48);
-	}
-	return (sign * resp);
+	return (1);
 }
 
 /**
- * print_int - prints an integer
- * @n: int
- * Return: 0
+ * mul - multiplies two integers
+ * @num1: int
+ * @num2: int
+ * Return: NULL on error or 1 upon success
  */
 
-void print_int - prints(unsigned long int n)
+void mul(char *num1, char *num2)
 {
-	unsigned long int divisor = 1, i, resp;
+	int start = 0;
+	int result[200] = {0};
+	int len1 = strlen(num1);
+	int len2 = strlen(num2);
+	int i, j, carry, product;
 
-	for (i = 0; n / divisor > 9; i++, divisor *= 10)
+	for (i = len1 - 1; i >= 0; i--)
 	{
-		resp = n / divisor;
-		_putchar('0' + resp);
+		carry = 0;
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			product = (num1[i] - '0') * (num2[j] - '0') + result[i + j + 1] + carry;
+			result[i + j + 1] = product % 10;
+			carry = product / 10;
+		}
+		result[i] += carry;
+	}
+
+	while (result[start] == 0 && start < len1 + len2 - 1)
+	{
+		start++;
+	}
+
+	if (start == len1 + len2 - 1)
+	{
+		printf("0\n");
+	}
+	else
+	{
+		for (i = start; i < len1 + len2; i++)
+		{
+			printf("%d", result[i]);
+		}
+		printf("\n");
 	}
 }
-
-
 /**
- * main - print the result of the multiplication, followed by a new line
+ * main - writes arguments
  * @argc: int
- * @argv: list
+ * @argv: argument
  * Return: 0
  */
 
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
-	(void)argc;
+	char *num1, *num2;
+	int valid_num1, valid_num2;
 
 	if (argc != 3)
 	{
-		_puts("Error ");
+		printf("Error: Invalid number of arguments.\n");
 		exit(98);
 	}
-	print_int(_atoi(argv[1]) * _atoi(argv[2]));
-	_putchar('\n');
 
+	num1 = argv[1];
+	num2 = argv[2];
+
+	valid_num1 = validateInput(num1);
+	valid_num2 = validateInput(num2);
+
+	if (!valid_num1 || !valid_num2)
+	{
+		printf("Error: Invalid input numbers.\n");
+		exit(98);
+	}
+
+	mul(num1, num2);
 	return (0);
 }
+

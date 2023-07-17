@@ -1,8 +1,13 @@
 #include <stdio.h>
 
+/**
+ * main - print name of this source file
+ * Return: 0
+ */
+
 int main(void)
 {
-	printf("This program was compiled from the file: %s\n", __2-main.c__);
-	return 0;
+	printf("This program was compiled from the file: %s\n", __FILE__);
+	return (0);
 }
 

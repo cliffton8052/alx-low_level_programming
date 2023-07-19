@@ -4,14 +4,14 @@
  * get_op_func - Selects the correct function to perform ops
  * @s: The operator passed as an argument to the program.
  *
- * Return: A pointer to the function that corresponds to 
+ * Return: A pointer to the function that corresponds to
  *         the operator given as a parameter.
- *         If s does not match any of the 5 expected 
+ *         If s does not match any of the 5 expected
  *         operators (+, -, *, /, %), return NULL.
  */
 int (*get_op_func(char *s))(int, int)
 {
-	op_func_t ops[] = {
+	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
 		{"*", op_mul},
@@ -22,13 +22,13 @@ int (*get_op_func(char *s))(int, int)
 
 	int i = 0;
 
-	while (ops[i].op != NULL)
+	while (i < 5)
 	{
-		if (*s == *(ops[i].op) && *(s + 1) == '\0')
-			return ops[i].func;
+		if (*s && s[0] == ops[i].op[0] && !s[1])
+			return (ops[i].f);
 		i++;
 	}
 
-	return NULL;
+	return (NULL);
 }
 

@@ -1,46 +1,58 @@
 #include "lists.h"
 
 /**
- * print_listint_safe - Prints a listint_t linked list safely.
- * @head: Pointer to the head of the linked list.
+ * _r - reallocates mem of array pointers to nodes
+ * @list: old list to append
+ * @size: size of the new list
+ * @new: new node to add to the list
  *
- * Return: The number of nodes in the list.
+ * Return: pointer to new list
+ */
+const listint_t **_r(const listint_t **list, size_t size, const listint_t *new)
+{
+	const listint_t **newlist;
+	size_t count;
+
+	newlist = malloc(size * sizeof(listint_t *));
+	if (newlist == NULL)
+	{
+		free(list);
+		exit(98);
+	}
+	for (count = 0; count < size - 1; count++)
+		newlist[count] = list[count];
+	newlist[count] = new;
+	free(list);
+	return (newlist);
+}
+
+/**
+ * print_listint_safe - prints a listint_t linked list.
+ * @head: pointer to start of list
+ *
+ * Return: the number of nodes in list
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *slow = head;
-	const listint_t *fast = head;
-	size_t count = 0;
+	size_t count, num = 0;
+	const listint_t **list = NULL;
 
-	while (fast && fast->next)
+	while (head != NULL)
 	{
-		printf("[%p] %d\n", (void *)slow, slow->n);
-		count++;
-
-		slow = slow->next;
-		fast = fast->next->next;
-
-		if (slow == fast)
+		for (count = 0; count < num; count++)
 		{
-			printf("[%p] %d\n", (void *)slow, slow->n);
-			count++;
-			break;
+			if (head == list[count])
+			{
+				printf("-> [%p] %d\n", (void *)head, head->n);
+				free(list);
+				return (num);
+			}
 		}
+		num++;
+		list = _r(list, num, head);
+		printf("[%p] %d\n", (void *)head, head->n);
+		head = head->next;
 	}
-
-	if (slow == fast && fast != NULL)
-	{
-		printf("-> [%p] %d\n", (void *)fast, fast->n);
-		exit(98);
-	}
-
-	while (slow != NULL)
-	{
-		printf("[%p] %d\n", (void *)slow, slow->n);
-		count++;
-		slow = slow->next;
-	}
-
-	return (count);
+	free(list);
+	return (num);
 }
-

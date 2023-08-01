@@ -1,8 +1,7 @@
 #include "lists.h"
-#include <stdlib.h>
 
 /**
- * find_listint_loopfl - finds a loop in linked list
+ * find_listint_loop_fl - finds a loop in linked list
  * @head: linked list to search
  *
  * Return: address of node where loop starts/returns NULL
@@ -27,54 +26,39 @@ listint_t *find_listint_loop_fl(listint_t *head)
 
 /**
  * free_listint_safe - Frees a listint_t linked list safely.
- * @h: Pointer to a pointer to the head of the linked list.
+ * @h: pointer to a pointer to head of linked list
  *
- * Return: The size of the list that was freed.
- */
+ * Return: number nodes freed
+*/
+
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t *slow = *h, *fast = *h;
-	size_t count = 0;
+	listint_t *next, *loopnode;
+	size_t count;
+	int loop = 1;
 
-	while (fast && fast->next)
+	if (h == NULL || *h == NULL)
+		return (0);
+
+	loopnode = find_listint_loop_fl(*h);
+	for (count = 0; (*h != loopnode || loop) && *h != NULL; *h = next)
 	{
-		slow = slow->next;
-		fast = fast->next->next;
-
-		if (slow == fast)
-		{
-			slow = *h;
-
-			do {
-				slow = slow->next;
-				count++;
-			} while (slow != fast);
-
-			fast = *h;
-			while (slow->next != fast)
-			{
-				slow = slow->next;
-				count++;
-			}
-			while (count > 0)
-			{
-				listint_t *temp = fast->next;
-
-				free(fast);
-				fast = temp;
-				count--;
-			}
-			*h = NULL;
-			return (count);
-		}
-	}
-	while (*h)
-	{
-		listint_t *temp = (*h)->next;
-
-		free(*h);
-		*h = temp;
 		count++;
+		next = (*h)->next;
+		if (*h == loopnode && loop)
+		{
+			if (loopnode == loopnode->next)
+			{
+				free(*h);
+				break;
+			}
+			count++;
+			next = next->next;
+			free((*h)->next);
+			loop = 0;
+		}
+		free(*h);
 	}
+	*h = NULL;
 	return (count);
 }

@@ -1,4 +1,6 @@
 #include "main.h"
+#include <fcntl.h>
+
 
 /**
  * read_textfile - Reads a text file and prints it to the POSIX standard output.
@@ -36,7 +38,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 
 	n_written = write(STDOUT_FILENO, buffer, n_read);
-	if (n_written == -1 || (size_t)n_written != n_read)
+	if (n_written == -1 || (ssize_t)n_written != n_read)
 	{
 		free(buffer);
 		close(fd);

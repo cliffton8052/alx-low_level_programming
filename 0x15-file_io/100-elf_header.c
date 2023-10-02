@@ -21,7 +21,6 @@
 void print_elf_header_info(Elf64_Ehdr *header)
 {
 	int i;
-	const char *type_str;
 
 	printf("ELF Header:\n");
 	printf("  Magic: ");
@@ -45,6 +44,7 @@ int main(int argc, char *argv[])
 {
 	int fd;
 	Elf64_Ehdr header;
+	ssize_t bytes_read;
 
 	if (argc != 2)
 	{
